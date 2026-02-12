@@ -68,16 +68,35 @@ header {
     padding: 0 20px;
 }
 
-.top-bar .container {
+.top-bar-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
-.top-contact a {
-    margin-right: 20px;
+.top-left,
+.top-right {
+    flex: 1;
+}
+
+.top-center {
+    flex: 2;
+    text-align: center;
+}
+
+.top-right {
+    text-align: right;
+}
+
+.top-bar .container a {
     color: var(--white);
     font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.top-bar .container a:hover {
+    opacity: 0.8;
 }
 
 nav {
@@ -94,68 +113,14 @@ nav {
     text-decoration: none;
 }
 
-.logo-icon-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 8px);
-    grid-template-rows: repeat(4, 8px);
-    gap: 3px;
+.logo-img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
     flex-shrink: 0;
 }
 
-.dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 2px;
-}
-
-/* Colors from the image */
-.dot.red {
-    background-color: #ef476f;
-}
-
-.dot.purple {
-    background-color: #7209b7;
-}
-
-.dot.indigo {
-    background-color: #3f37c9;
-}
-
-.dot.orange {
-    background-color: #fb8500;
-}
-
-.dot.blue {
-    background-color: #0077b6;
-}
-
-.dot.cyan {
-    background-color: #00b4d8;
-}
-
-.dot.yellow {
-    background-color: #ffd60a;
-}
-
-.dot.orange-deep {
-    background-color: #ffb703;
-}
-
-.dot.teal {
-    background-color: #06d6a0;
-}
-
-.dot.purple-deep {
-    background-color: #560bad;
-}
-
-.dot.yellow-bright {
-    background-color: #ffea00;
-}
-
-.dot.red-deep {
-    background-color: #d00000;
-}
+/* Dots removed as we switched to image logo */
 
 .logo-text-group {
     display: flex;
@@ -164,21 +129,21 @@ nav {
 }
 
 .logo-name {
-    font-family: 'Outfit', sans-serif;
-    font-size: 2.2rem;
-    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
     color: #2b3a8c;
     line-height: 1;
-    letter-spacing: -1.5px;
+    letter-spacing: -1px;
 }
 
 .logo-tagline {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 600;
     color: #444;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 5px;
+    letter-spacing: 1.5px;
+    margin-top: 3px;
     display: block;
 }
 
@@ -192,7 +157,12 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 40px;
+    /* Increased for better separation */
+    margin-left: auto;
+    /* Push links to the right */
+    margin-right: 40px;
+    /* Space between links and button */
 }
 
 .nav-links a {
@@ -1004,8 +974,8 @@ footer {
 
 .stats-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
 }
 
 .stat-card {
@@ -1198,7 +1168,7 @@ footer {
 /* Hero Section */
 .hero-section {
     position: relative;
-    padding: 120px 0;
+    padding: 10px 0;
     /* Consistent padding top/bottom */
     min-height: auto;
     /* Wrap content */
@@ -1234,6 +1204,10 @@ footer {
 .hero-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
+    /* Center to keep text and illustration cohesive */
+    gap: 80px;
+    /* Specific gap for balanced look */
     position: relative;
     z-index: 2;
 }
@@ -1653,7 +1627,7 @@ footer {
     }
 
     .hero-section {
-        padding-top: 120px;
+        padding-top: 10px;
     }
 
     .hero-wrapper {
