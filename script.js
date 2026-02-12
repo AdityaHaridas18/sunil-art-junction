@@ -93,20 +93,44 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Lottie Animations
-    const loadLottie = (id, path) => {
+    const loadLottie = (id, fileName) => {
         const container = document.getElementById(id);
-        if (container && typeof lottie !== 'undefined') {
-            lottie.loadAnimation({
-                container: container,
-                renderer: 'svg',
-                loop: true,
-                autoplay: true,
-                path: path
-            });
+        if (!container) {
+            console.warn(`Lottie container #${id} not found`);
+            return;
         }
+
+        if (typeof lottie === 'undefined') {
+            console.error('Lottie library (bodymovin) not loaded!');
+            return;
+        }
+
+        // Handle path resolution for GitHub Pages/Subdirectories
+        // If we are at /sunil-art-junction/index.html, we need to load /sunil-art-junction/images/...
+        const path = `images/${fileName}`;
+
+        console.log(`Attempting to load Lottie: ${id} from ${path}`);
+
+        const anim = lottie.loadAnimation({
+            container: container,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: path
+        });
+
+        anim.addEventListener('DOMLoaded', () => {
+            console.log(`Lottie ${id} loaded successfully`);
+            container.style.opacity = '1';
+        });
+
+        anim.addEventListener('data_failed', () => {
+            console.error(`Lottie ${id} failed to load data from ${path}`);
+        });
     };
 
-    loadLottie('lottie-hero', 'images/Landinganimation.json');
-    loadLottie('lottie-welcome', 'images/Welcome.json');
-    loadLottie('lottie-contact', 'images/ContactUs.json');
+    // Use filenames only, loader prepends images/
+    loadLottie('lottie-hero', 'Landinganimation.json');
+    loadLottie('lottie-welcome', 'Welcome.json');
+    loadLottie('lottie-contact', 'ContactUs.json');
 });
