@@ -91,4 +91,22 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Lottie Animations
+    const loadLottie = (id, path) => {
+        const container = document.getElementById(id);
+        if (container && typeof lottie !== 'undefined') {
+            lottie.loadAnimation({
+                container: container,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: path
+            });
+        }
+    };
+
+    loadLottie('lottie-hero', 'images/Landinganimation.json');
+    loadLottie('lottie-welcome', 'images/Welcome.json');
+    loadLottie('lottie-contact', 'images/ContactUs.json');
 });
