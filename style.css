@@ -1168,8 +1168,8 @@ footer {
 /* Hero Section */
 .hero-section {
     position: relative;
-    padding: 10px 0;
-    /* Consistent padding top/bottom */
+    padding: 30px 0;
+    /* Increased by 20px for breathing room */
     min-height: auto;
     /* Wrap content */
     display: flex;
@@ -1644,7 +1644,8 @@ footer {
     }
 
     .hero-section {
-        padding-top: 10px;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
 
     .hero-wrapper {
