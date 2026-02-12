@@ -1295,6 +1295,23 @@ footer {
 .hero-image {
     flex: 1;
     position: relative;
+    min-height: 400px;
+    /* Ensure space for lottie */
+}
+
+#lottie-hero {
+    height: 400px;
+    width: 100%;
+}
+
+#lottie-welcome {
+    height: 450px;
+    width: 100%;
+}
+
+#lottie-contact {
+    height: 300px;
+    width: 100%;
 }
 
 .img-blob-mask {
@@ -1642,6 +1659,16 @@ footer {
 
     .hero-btns {
         justify-content: center;
+    }
+
+    #lottie-hero,
+    #lottie-welcome {
+        height: 300px;
+        /* Smaller for mobile */
+    }
+
+    #lottie-contact {
+        height: 250px;
     }
 
     .hero-text h1 {
